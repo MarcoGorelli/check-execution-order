@@ -1,0 +1,9 @@
+-   id: check-execution-order
+    name: check-execution-order
+    description: Automatically check execution order in Jupyter Notebooks
+    entry: check-execution-order
+    language: python
+    types: [jupyter]
+    # for backward compatibility
+    files: ''
+    minimum_pre_commit_version: 0.15.0
