@@ -35,7 +35,7 @@ Sample `.pre-commit-config.yaml`:
 ## Command-line example
 
 ```console
-$ check-execution-order bad.ipynb 
+$ check-execution-order bad.ipynb
 Cell 1 comes after 2 in file 'bad.ipynb'
 ```
 
