@@ -21,7 +21,7 @@ def check_execution_order(
         new_execution_count = cell['execution_count']
         if (
             new_execution_count is not None
-            and not new_execution_count > execution_count
+            and not new_execution_count == execution_count + 1
         ):
             sys.stdout.write(
                 f'Cell {new_execution_count} comes after '
