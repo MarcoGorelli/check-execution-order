@@ -21,3 +21,19 @@ def test_main_good(capsys):
     out, _ = capsys.readouterr()
     assert out == ''
     assert ret == 0
+
+def test_main_arguable(capsys):
+    '''Check that passes with strict=False and doesn't otherwise.'''
+    path = os.path.join('tests', 'data', 'arguable.ipynb')
+    ret = main((
+        path,
+    ))
+    out, _ = capsys.readouterr()
+    assert out == ''
+    assert ret == 0
+    ret = main((
+        path,
+    ), (True,))
+    out, _ = capsys.readouterr()
+    assert out == f'Cell 3 comes after 1 in file \'{path}\'\n'
+    assert ret == 0
