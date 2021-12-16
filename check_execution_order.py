@@ -8,7 +8,7 @@ from typing import Sequence
 
 
 def compare_execution_counts(
-    execution_count: int, new_execution_count: int, strict: bool
+    execution_count: int, new_execution_count: int, strict: bool,
 ):
     if strict:
         if (
@@ -31,16 +31,16 @@ def check_execution_order(
     strict: bool,
 ) -> int:
     execution_count = 0
-    code_cells = content["cells"]
+    code_cells = content['cells']
 
     ret = 0
     for cell in code_cells:
-        if cell["cell_type"] != "code":
+        if cell['cell_type'] != 'code':
             continue
-        new_execution_count = cell["execution_count"]
+        new_execution_count = cell['execution_count']
         if compare_execution_counts(execution_count, new_execution_count, strict):
             sys.stdout.write(
-                f"Cell {new_execution_count} comes after "
+                f'Cell {new_execution_count} comes after '
                 f"{execution_count} in file '{file_name}'\n",
             )
             ret = 1
@@ -51,8 +51,8 @@ def check_execution_order(
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("files", nargs="*")
-    parser.add_argument("--strict", action="store_true")
+    parser.add_argument('files', nargs='*')
+    parser.add_argument('--strict', action='store_true')
     args = parser.parse_args(argv)
 
     ret = 0
@@ -63,5 +63,5 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     return ret
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     exit(main())
