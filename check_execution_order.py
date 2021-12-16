@@ -19,7 +19,7 @@ def compare_execution_counts(
     else:
         if (
             new_execution_count is not None
-            and not new_execution_count > execution_count + 1
+            and not new_execution_count > execution_count
         ):
             return True
     return False
