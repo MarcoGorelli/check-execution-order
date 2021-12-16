@@ -9,7 +9,7 @@ from typing import Sequence
 
 def compare_execution_counts(
     execution_count: int, new_execution_count: int, strict: bool,
-):
+) -> bool:
     if strict:
         if (
             new_execution_count is not None
@@ -38,7 +38,9 @@ def check_execution_order(
         if cell['cell_type'] != 'code':
             continue
         new_execution_count = cell['execution_count']
-        if compare_execution_counts(execution_count, new_execution_count, strict):
+        if compare_execution_counts(
+                execution_count, new_execution_count, strict,
+        ):
             sys.stdout.write(
                 f'Cell {new_execution_count} comes after '
                 f"{execution_count} in file '{file_name}'\n",
