@@ -34,9 +34,9 @@ def test_main_arguable(capsys):
     assert ret == 0
     ret = main(
         (
-            path,
-        ), (True,),
+            path, '--strict'
+        ),
     )
     out, _ = capsys.readouterr()
     assert out == f'Cell 3 comes after 1 in file \'{path}\'\n'
-    assert ret == 0
+    assert ret == 1
