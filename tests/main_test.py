@@ -34,7 +34,7 @@ def test_main_arguable(capsys):
     assert ret == 0
     ret = main(
         (
-            path, '--strict'
+            path, '--strict',
         ),
     )
     out, _ = capsys.readouterr()
