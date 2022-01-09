@@ -59,7 +59,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
     ret = 0
     for file in args.files:
-        with open(file) as fd:
+        with open(file, encoding='utf-8') as fd:
             content = json.load(fd)
         ret = ret or check_execution_order(content, file, strict=args.strict)
     return ret
